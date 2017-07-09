@@ -24,6 +24,7 @@ object KafkaProducer extends App {
   for (us <- readData("ab_browser_test.csv")) {
     println(gson.toJson(us))
     val record = new ProducerRecord(TOPIC, "key", gson.toJson(us))
+    Thread.sleep(50)
     producer.send(record)
   }
 
