@@ -1,5 +1,8 @@
+import java.time.LocalDateTime
+
 import scala.io.Source.fromFile
 import java.util.Properties
+
 import com.google.gson.Gson
 import org.apache.kafka.clients.producer._
 
@@ -27,9 +30,6 @@ object KafkaProducer extends App {
     Thread.sleep(50)
     producer.send(record)
   }
-
-  val record = new ProducerRecord(TOPIC, "key", "the end " + new java.util.Date)
-  producer.send(record)
 
   producer.close()
 
